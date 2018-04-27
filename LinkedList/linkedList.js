@@ -31,7 +31,28 @@ function LinkedList(){
         length++;
     }
     this.insert = function(position,element){//向列表的特定位置插入一个新的项
-
+        if(position>=0 && position<=length){
+            let node = new Node(element),
+            current = head,//当前链表
+            previous,//之前的链表
+            index = 0;
+            //如果是添加到第一个
+            if(position===0){
+                node.next = current;
+                head = node;
+            }else{
+                while(index++<position){
+                    previous = current;
+                    current = current.next;
+                }
+                node.next = current;
+                previous.next = node;
+            }
+            length++;
+            return true;
+        }else{
+            return false;
+        }
     }
     this.removeAt = function(position){//从列表的特定位置移除一项
         if(position>-1 && position<length){
@@ -84,4 +105,6 @@ listnode.append(6)
 listnode.toString();
 listnode.removeAt(1);
 listnode.toString();
-
+listnode.toString();
+listnode.insert(1,2);
+listnode.toString();
