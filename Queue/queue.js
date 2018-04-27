@@ -19,4 +19,29 @@ class Queue{
     front(){
         return this.item[0];
     }
+    isEmpty(){
+        return !this.item.length>0
+    }
+    size(){
+        return this.item.length;
+    }
+    clear(){
+        this.item = [];
+    }
+    print(){
+        console.log(this.item.toString());
+    }
 }
+// let que = new Queue();
+// console.log(que.isEmpty());
+// que.enqueue('xie');
+// que.enqueue('ji');
+// que.enqueue('yao');
+// que.print();
+// console.log(que.size());
+// console.log(que.isEmpty());
+// que.dequeue();
+// console.log(que.front());
+// que.dequeue();
+// que.print();
+module.exports = Queue;
