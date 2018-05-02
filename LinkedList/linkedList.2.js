@@ -7,6 +7,21 @@ function LinkedList(){
     let length = 0,
         head = null,//头
         tail = null;//尾巴
+    
+    this.append = (element)=>{
+        let node = new Node(element),
+        current;
+        if(head==null){
+            head = node;
+        }else{
+            current = head;
+            while(current.next){
+                current = current.next;
+            }
+            current.next = node;
+            node.prev = current;
+        }
+    }
     this.insert = (position,element)=> {
         if(position>=0&&position<=length){
             let node = new Node(element),
