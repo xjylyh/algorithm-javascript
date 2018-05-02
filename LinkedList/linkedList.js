@@ -78,20 +78,38 @@ function LinkedList(){
             return null;
         }
     }
-    this.remove = function(){//从列表中移除一项
-
+    this.remove = function(element){//从列表中移除一项
+        let index = this.indexOf(element);
+        if(index){
+            return this.removeAt(index);
+        }else{
+            console.log('element is not defind');
+        }
     }
-    this.indexOf = function(){//返回元素在列表中的索引。如果列表中没有该元素则返回-1。
-
+    this.indexOf = function(element){//返回元素在列表中的索引。如果列表中没有该元素则返回-1。
+        let current = head,index=-1;
+        while(current){
+            if(element===current.element){
+                return index;
+            }
+            index++;
+            current = current.next();
+        }
+        return -1;
     }
     this.isEmpty = function(){//如果链表中不包含任何元素，返回true，如果链表长度大于0则返回false。
-
+        return length===0;
     }
     this.size = function(){//返回链表包含的元素个数。与数组的length属性类似。
-
+        return length;
     }
     this.toString = function(){//由于列表项使用了Node类，就需要重写继承自JavaScript对象默认的toString方法，让其只输出元素的值。
-        console.log(head,length);
+        let current = head,string = "";
+        while(current){
+            string+=current.element;
+            current = current.next;
+        }
+        return string;
     }
 }
 
@@ -102,9 +120,7 @@ listnode.append(3)
 listnode.append(4)
 listnode.append(5)
 listnode.append(6)
-listnode.toString();
+console.log(listnode.toString());
 listnode.removeAt(1);
-listnode.toString();
-listnode.toString();
-listnode.insert(1,2);
-listnode.toString();
+console.log(listnode.toString());
+console.log(listnode.isEmpty(),listnode.size())
