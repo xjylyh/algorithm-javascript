@@ -57,6 +57,45 @@ function Set(){
         }
         return unionSet;
     }
+    /**
+     * 交集的数学概念，集合A和B的交集，表示为A∩B，定义如下：
+        A∩B = { x | x ∈ A∧x ∈ B }
+        意思是x（元素）存在于A中，且x存在于B中。
+     * @param {Set} otherSet 
+     */ 
+    this.intersection = (otherSet)=>{
+        let intersectionSet = new Set();
+        let values = this.values();
+        for(let i=0;i<values.length;i++){
+            if(otherSet.has(values[i])){
+                intersectionSet.add(values[i]);
+            }
+        }
+        return intersectionSet;
+    }
+    /**
+     * 差集的数学概念，集合A和B的差集，表示为A-B，定义如下：
+        A-B = { x | x ∈ A ∧ x B }
+        意思是x（元素）存在于A中，且x不存在于B中。
+     * @param {Set} otherSet 
+     */ 
+    this.difference = (otherSet)=>{
+        let differenceSet = new Set();
+        let values = this.values();
+        for(let i=0;i<values.length;i++){
+            if(!otherSet.has(values[i])){
+                differenceSet.add(values[i])
+            }
+        }
+        return differenceSet;
+    }
+    /**
+     * 
+     * @param {Set} otherSet 
+     */ 
+    this.subset = (otherSet)=>{
+
+    }
 }
 
 let set = new Set();
@@ -78,3 +117,5 @@ otset.add(4);
 otset.add(5);
 otset.add(9);
 console.log(set.union(otset).values());
+console.log(set.intersection(otset).values());
+console.log(set.difference(otset).values())
