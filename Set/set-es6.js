@@ -90,11 +90,24 @@ function Set(){
         return differenceSet;
     }
     /**
-     * 
+     * 子集的数学概念，集合A是B的子集（或集合B包含
+        了A），表示为A⊆B，定义如下：
+        ∀x { x ∈ A → x ∈ B }
+        意思是集合A中的每一个x（元素），也需要存在于B中(这里的otherSet->B集合)
      * @param {Set} otherSet 
      */ 
     this.subset = (otherSet)=>{
-
+        if(this.size()>otherSet.size()){
+            return false;
+        }else{
+            let values = this.values();
+            for(let i=0;i<values.length;i++){
+                if(otherSet.has(values[i])){
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
 
