@@ -16,7 +16,9 @@ function LinkedList(){
     }
     let length = 0;
     let head = null;
-
+    this.getHead = function(){
+        return head;
+    }
     this.append = function(element){//向列表尾部添加一个新的项
         let current,node = new Node(element);
         if(head === null){
@@ -84,6 +86,7 @@ function LinkedList(){
             return this.removeAt(index);
         }else{
             console.log('element is not defind');
+            return false;
         }
     }
     this.indexOf = function(element){//返回元素在列表中的索引。如果列表中没有该元素则返回-1。
@@ -113,14 +116,15 @@ function LinkedList(){
     }
 }
 
-let listnode = new LinkedList();
-listnode.append(1)
-listnode.append(2)
-listnode.append(3)
-listnode.append(4)
-listnode.append(5)
-listnode.append(6)
-console.log(listnode.toString());
-listnode.removeAt(1);
-console.log(listnode.toString());
-console.log(listnode.isEmpty(),listnode.size())
+// let listnode = new LinkedList();
+// listnode.append(1)
+// listnode.append(2)
+// listnode.append(3)
+// listnode.append(4)
+// listnode.append(5)
+// listnode.append(6)
+// console.log(listnode.toString());
+// listnode.removeAt(1);
+// console.log(listnode.toString());
+// console.log(listnode.isEmpty(),listnode.size())
+module.exports = LinkedList;

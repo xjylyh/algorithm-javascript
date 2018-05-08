@@ -7,6 +7,7 @@
      size()：返回字典所包含元素的数量。与数组的length属性类似。
      keys()：将字典所包含的所有键名以数组形式返回。
      values()：将字典所包含的所有数值以数组形式返回。
+     getItems();返回items变量
  */ 
 class Dictionary{
     constructor(){
@@ -39,11 +40,25 @@ class Dictionary{
     }
     values(){
         let result = [];
-        for(k in this.items){
+        for(let k in this.items){
             if(this.has(k)){
-                result.push(k);
+                result.push(this.items[k]);
             }
         }
         return result;
     }
+    getItems(){
+        return this.items;
+    }
 }
+
+module.exports = Dictionary;
+
+let diction = new Dictionary();
+diction.set('jiyao','18001300327@163.com');
+diction.set('xjy','jiyao1@jiaju.com');
+diction.set('jy','xiejiyao@ehousechina.com');
+console.log(diction.has('jy'));
+console.log(diction.keys());
+console.log(diction.values());
+console.log(diction.get('xjy'));
