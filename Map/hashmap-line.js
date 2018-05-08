@@ -1,6 +1,6 @@
 const ValuePair = require('./hashmap-set');
 
-class line extends ValuePair{
+class Line extends ValuePair{
     constructor(){
         super();
     }
@@ -53,6 +53,22 @@ class line extends ValuePair{
         return undefined;
     }
 }
+
+// let line = new Line();
+// line.put('Gandalf', 'gandalf@email.com');
+// line.put('John', 'johnsnow@email.com');
+// line.put('Tyrion', 'tyrion@email.com');
+// line.put('Aaron', 'aaron@email.com');
+// line.put('Donnie', 'donnie@email.com');
+// line.put('Ana', 'ana@email.com');
+// line.put('Jonathan', 'jonathan@email.com');
+// line.put('Jamie', 'jamie@email.com');
+// line.put('Sue', 'sue@email.com');
+// line.put('Mindy', 'mindy@email.com');
+// line.put('Paul', 'paul@email.com');
+// line.put('Nathan', 'nathan@email.com');
+// console.log(line.toString());
+// console.log(line.get('Tyrion'));
 
 /**
  * 更好的loseloseHashCode实现    //规定->比较好的实现的魔数  5381  33  1013 
