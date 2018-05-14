@@ -51,6 +51,39 @@ let postOrderTraverseNode = function(node,cb){
         cb(node.key);
     }
 }
+//返回树中最小的值/键
+let minNode = function(node){
+    if(node){
+        while(node.left){
+            node = node.left;
+        }
+        return node.key;
+    }
+    return null;
+}
+//返回树中最大的值/键
+let maxNode = function(node){
+    if(node){
+        while(node.right){
+            node = node.right;
+        }
+        return node.key;
+    }
+    return null;
+}
+
+let searchNode = function(node,key){
+    if(node==null){
+        return undefined;
+    }
+    if(key<node.key){
+        return searchNode(node.left,key);
+    }else if(key>node.key){
+        return searchNode(node.right,key)
+    }else{
+        return true;
+    }
+}
 //辅助方法结束
 
 
@@ -72,9 +105,9 @@ function BinarySearchTree(){
             insertNode(this.root,newNode)
         }
     }
-
+    //搜索一个特定的值
     this.search = (key)=>{
-
+        return searchNode(this,root,key);
     }
 
     //树的中序遍历
@@ -89,6 +122,15 @@ function BinarySearchTree(){
     this.postOrderTraverse = (callback)=>{
         postOrderTraverseNode(this.root,callback);
     }
+    //最小值
+    this.min = ()=>{
+        return minNode(this.root);
+    }
+    //最大值
+    this.max = ()=>{
+        return maxNode(this.root);
+    }
+    
 }
 
 let tree = new BinarySearchTree();
@@ -111,3 +153,8 @@ console.log(tree.root);
 tree.postOrderTraverse(function(item){
     console.log(item);
 })
+console.log(tree.max())
+console.log(tree.min())
+console.log(tree.search(1) ? 'Key 1 found.' : 'Key 1 not found.');
+console.log(tree.search(8) ? 'Key 8 found.' : 'Key 8 not found.'); 
+
